@@ -1,60 +1,69 @@
-# Welcome to Project-Name!  
-(maybe add some kind of fancy burning match banner?)
+# Welcome to The Talking Treebot! 
+(updated version, [original found here](https://github.com/technologiestiftung/talking-treebot))
 
-very **short** description of: 
-- what it is 
-- in what context it was developed 
+**Chatting with a botanic friend**
 
-```A simple DIY "drone" streaming either live camera or infrared feed. Part of the [TechTales exhibition at UNI_VERSUM.](https://linktothething.notarealwebsite.com)```
+**Dataset View**  
+I am the Talking Treebot. I use AI to give a voice to trees, encouraging playful conversations about our ecological roles and the threats posed by climate change. I am here to promote environmental awareness through multilingual interaction and simple, hands-on engagement through technology.
 
-Try to stick to 1 or 2 sentences, no more than a paragraph.
+**Interaction View**  
+You can talk to me in different languages. About anything you like. Smalltalk, facts about the forest, how is the forest perceived in different cultures. What are the biggest challenges? How are we gonna face them? Don‘t be so shy!
 
-## Features (optional)
 
-## Hardware (optional)
+Part of the [TechTales exhibition at UNI_VERSUM.](https://linktothething.notarealwebsite.com)
 
-if your project only consists of an esp32 devboard, a potentiometer, and a raspberry pi, feel free to list them here -> immediately show what is needed / for what it is designed
+## Hardware
 
-```
-- Seeed Studio XIAO ESP32S3 Sense
-- super duper fancy Infrared-Sensor2000
-- 340mAh LiPo battery
-- 22in mylar ballon (or similar)
-- kite string
-- optional NeoPixels or similar
-```
+- Rasbperry Pi 4, 4GB RAM
+- ESP32 NodeMCU Dev Kit C, 30 pin version
+- 1m, 144 led strip, WS2812B, 3 pin
+- some conductive thread 
+- bluetooth microphone
+- computer/desktop speaker 
+- usb phone charger 5V 2A
+- power supply 5V 15A **(NEW)**
+- usb cables and wires to connect everything
 
-if it requires a bunch of components, put it in the documentation
+## Changes
 
-## Quick Start / Documentation (optional)
+### 1. Sensible Changes
 
-if it's something super simple (a standalone arduino sketch), provide a quick description of how to get it running here. 
-if at all possible, add picture(s)! 
-(make sure to note any special version requirements, or such, if relevant)
+The main issue with the original setup was that the esp32 (responsible for starting conversations via detection of touch and visual output via led-strip) kept crashing and rebooting. Some troubleshooting showed that this was caused by the led-strip's inrush current tripping the undersized original power supply (another 5V 2A usb charger, going through the esp32's usb port and VIN pin at that!), causing temporary voltage drops, which in turn caused the esp32 to brown-out and endlessly reboot. 
 
-``` 
-Only works with Arduino IDE >= 2.13 !
+Easy fixes would have been:
+- add soft-starts in software, reducing inrush current,
+- replace the usb power supply with a stronger one (5V 3A probably would have been okay), 
+- add additional capacitors to bridge the spikes, 
+- add inductor / ferrite chokes, 
+- get a proper led driver,  
 
-- Connect the camera module to the ESP32 as described here: [link]
-- Copy the src folder to your computer and open the sketch in Arduino IDE. 
-- Make sure to install somerandomlibrary
-- Set your own WiFi credentials
-- Compile and Upload 
-- Open browser and enjoy!
+but as I fought myself through the [absolute mess of the tree's wiring](./hardware/wire-mess.jpg) and the somewhat confusing documentation/comments of the latest code changes, I got so annoyed, that I chose to instead redo the entire wiring situation from scratch. 
 
-If anything went wrong, check common errors and solutions in docs/troubleshooting.md, or use our [handy little prompt template](https://github.com/smitzkar/wald-troubleshooting-prompt/) to let your favourite llm guide you through the process.  
+#### Old Architecture
 
-If it's your first time using Arduino, we recommend you follow [this guide.](https://randomnerdtutorials.com/installing-esp32-arduino-ide-2-0/)
+![basic block diagram of OLD hardware and connections](./hardware/OLD_treebot_block-diagram_handdrawn.jpg)
 
-```
+#### New Architecture
 
-if it's more complex, link to the relevant documentation. for example: 
-```
-Check out our [Quick Start Guide here!](docs/Build-Guide.md) 
-For a quick guide on how to get started with bela, see: [linktosomegoodplace](https://actuallinktogoodplace.notarealwebsite.com)
-```
+![basic block diagram of NEW hardware and connecctions](./hardware/NEW_treebot_block-diagram_handdrawn.jpg)
 
-## Anything Else? 
+- completely separate the leds' power from the logic (esp32, pi)  
+    - leds powered via 5V 15A power supply  
+    (quite overpowered, but it's what I had at hand, giving nice buffer)
+    - pi still powered via original usb charger
+    - esp32 powered through pi's usb port  
+    (unproblematic, as it never pulls more than 160mA and the pi's usb ports are rated for up to 1.2A)
+
+- simplify communication
+    - replace the somewhat odd jumper cable half-UART communication between esp32 and pi with a simple usb cable  
+    (more stable and robust communication by using properly shielded cable, no more need to run two serial instances, ability to program the esp32 from the pi!)
+
+
+### 2. Getting Carried Away
+
+As I was already in the process of making adjustments, I couldn't help myself... 
+
+
 
 ## Links (to do)
 
