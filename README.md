@@ -37,7 +37,7 @@ Easy fixes would have been:
 - add inductor / ferrite chokes, 
 - get a proper led driver,  
 
-but as I fought myself through the [absolute mess of the tree's wiring](./hardware/wire-mess.jpg) and the somewhat confusing documentation/comments of the latest code changes, I got so annoyed, that I chose to instead redo the entire wiring situation from scratch. 
+but as I fought myself through our [absolute mess of the tree's wiring](./hardware/wire-mess.jpg) and the documentation/comments of the latest code changes, I got so annoyed, that I chose to instead redo the entire wiring situation from scratch. 
 
 #### Old Architecture
 
@@ -58,11 +58,21 @@ but as I fought myself through the [absolute mess of the tree's wiring](./hardwa
     - replace the somewhat odd jumper cable half-UART communication between esp32 and pi with a simple usb cable  
     (more stable and robust communication by using properly shielded cable, no more need to run two serial instances, ability to program the esp32 from the pi!)
 
+# TODO: ADD PHOTO OF THE NOW ACTIVE SETUP, ONCE TAKEN DOWN
 
 ### 2. Getting Carried Away
 
 As I was already in the process of making adjustments, I couldn't help myself... 
 
+- don't go into too much detail, just say what I did, present the code snippets?
+
+## 3. OUTLOOK
+
+- see notebook 02-17 
+- current prompt
+- mention options to improve it (my experiments -> realtime, agentic architecture, etc.) 
+- short discussion about the "giving it a voice" thing, how it could have been done differently
+- mention the costs!
 
 
 ## Links (to do)
