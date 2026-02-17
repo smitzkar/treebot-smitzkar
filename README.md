@@ -58,7 +58,7 @@ but as I fought myself through our [absolute mess of the tree's wiring](./hardwa
     - replace the somewhat odd jumper cable half-UART communication between esp32 and pi with a simple usb cable  
     (more stable and robust communication by using properly shielded cable, no more need to run two serial instances, ability to program the esp32 from the pi!)
 
-# TODO: ADD PHOTO OF THE NOW ACTIVE SETUP, ONCE TAKEN DOWN
+# **TODO:** ADD PHOTO OF THE NOW ACTIVE SETUP, ONCE TAKEN DOWN
 
 ### 2. Getting Carried Away
 
@@ -75,6 +75,8 @@ As I was already in the process of making adjustments, I couldn't help myself...
 - mention the costs!
 
 
-## Links (to do)
+## Links
 
-links to lifo website, relevant outside stuff
+[Our website lifolab](https://www.lifolab.de)
+
+[Fachgebiet Nachrichtenübertragung an der Technischen Universität Berlin](https://www.tu.berlin/nue)
