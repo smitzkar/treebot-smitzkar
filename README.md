@@ -1,4 +1,5 @@
-# Welcome to The Talking Treebot! 
+# Welcome to (The Alternative) Talking Treebot! 
+
 (updated version, [original found here](https://github.com/technologiestiftung/talking-treebot))
 
 **Chatting with a botanic friend**
@@ -10,7 +11,7 @@ I am the Talking Treebot. I use AI to give a voice to trees, encouraging playful
 You can talk to me in different languages. About anything you like. Smalltalk, facts about the forest, how is the forest perceived in different cultures. What are the biggest challenges? How are we gonna face them? Don‘t be so shy!
 
 
-Part of the [TechTales exhibition at UNI_VERSUM.](https://linktothething.notarealwebsite.com)
+Part of the [TechTales exhibition at UNI_VERSUM.](https://www.lifolab.de/techtales)
 
 ## Hardware
 
