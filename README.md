@@ -1,6 +1,6 @@
 # Welcome to (The Alternative) Talking Treebot! 
 
-(updated version, [original found here](https://github.com/technologiestiftung/talking-treebot))
+(updated version, [original version created by Technologiestiftung Berlin found here](https://github.com/technologiestiftung/talking-treebot))
 
 **Chatting with a botanic friend**
 
