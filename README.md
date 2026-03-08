@@ -1,4 +1,4 @@
-# Welcome to (The Alternative) Talking Treebot! 
+# Welcome to (yet another iteration of the) Talking Treebot! 
 
 (updated version, [original version created by Technologiestiftung Berlin found here](https://github.com/technologiestiftung/talking-treebot))
 
@@ -27,6 +27,13 @@ Part of the [TechTales exhibition at UNI_VERSUM.](https://github.com/reallaborwa
 
 ## Changes
 
+### Don't care, just tell me how to use it!  
+  
+- Main script running on Pi: `src/main_v4.py` (set to autorestart)
+- Sketch running on esp32:   `src/esp32vine_karl_USB.ino` 
+
+Warning: I don't believe `run_main.sh` was actually in use. Instead, autostart was handled via service daemon: https://github.com/technologiestiftung/talking-treebot-exhibit?tab=readme-ov-file#automatically-startng-the-script-with-system-services-preferred (but targetting `main_v4.py`)  
+TODO: -[ ] grab latest version from pi
 ### 1. Sensible Changes
 
 The main issue with the original setup was that the esp32 (responsible for starting conversations via detection of touch and visual output via led-strip) kept crashing and rebooting. Some troubleshooting showed that this was caused by the led-strip's inrush current tripping the undersized original power supply (another 5V 2A usb charger, going through the esp32's usb port and VIN pin at that!), causing temporary voltage drops, which in turn caused the esp32 to brown-out and endlessly reboot. 

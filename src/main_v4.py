@@ -20,7 +20,7 @@ import RPi.GPIO as GPIO
 # no more messing around -> move to USB, separate power supplies 
 
 
-# requires esp32vine_karl.ino to run on the esp32 (found at: talking-treebot/esp32vine_karl)
+# requires esp32vine_karl_USB.ino to run on the esp32 (found at: talking-treebot/esp32vine_karl_USB)
 
 #ks: this isn't a "button" but the input from ESP32 
 # uses RX pin on GPIO15
@@ -112,14 +112,23 @@ def export_conversation(history, language):
 
 def main():
     loop_active = False
+    last_loop_active = False # to prevent spam
     history = [] # conversation history
     question_counter = 0 # number of questions asked
     # ser = serial.Serial('/dev/serial0', 115200, timeout=1)
-    ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
-    ser.reset_input_buffer() // get rid of boot-time noise
-
+    ser = serial.Serial(
+        "/dev/ttyUSB0",
+        115200,
+        timeout=1,
+        dsrdtr=False,
+        rtscts=False,
+    )
+    ser.setDTR(False)
+    ser.setRTS(False)
+    ser.reset_input_buffer() # get rid of boot-time noise
+    time.sleep(0.2)
     print(f"Done setting up serial connection.")
-    time.sleep(0.1)
+
 
     # Initial LED state
     ser.write(f'{LED_WHITE}\n'.encode('utf-8'))
@@ -134,16 +143,25 @@ def main():
             # if pin_state == GPIO.HIGH and question_counter == 0:
                 # loop_active = True
                 # print(f"Yay, vine was touched! Starting conversation loop.")
-            if ser.in_waiting:
-                line = ser.readline().decode().strip()
-                if line == "TOUCH":
-                    print(f"TOUCH signal received from esp32")
-                    if question_counter == 0:
-                        loop_active = True
-                        print(f"Yay, vine was touched! Starting conversation loop.")
-              
-
-            print(f"Loop_active: {loop_active}")
+            try: # avoid crashing the script when problem with serial            
+                if ser.in_waiting > 0:
+                    line = ser.readline().decode("utf-8", errors="replace").strip() # replaces invadid bytes with � (prevents crash and gives feedback)
+                    if line == "TOUCH":
+                        print(f"TOUCH signal received from esp32")
+                        if question_counter == 0:
+                            loop_active = True
+                            print(f"Yay, vine was touched! Starting conversation loop.")
+            except serial.SerialException as e:
+                print("Serial disconnected:", e)
+                ser.close()
+                time.sleep(1)
+                ser.open()
+                continue
+            
+            # to prevent endless spam
+            if loop_active != last_loop_active:
+                print(f"Loop_active: {loop_active}")
+                last_loop_active = loop_active
             
             # start interaction
             if loop_active:
