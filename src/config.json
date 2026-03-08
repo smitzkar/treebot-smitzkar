@@ -1,0 +1,135 @@
+{
+  "tree": {
+    "art_deutsch": "Baum",
+    "alter": 340,
+    "bezirk": "Universum der TU Berlin"
+  },
+  "waitings": [
+    {
+      "text": "Mhhh ich werfe meine knorrigen Gehirnzellen an und überlege…",
+      "filename": "audio/waiting1.mp3"
+    },
+    {
+      "text": "Moment mal, lass mich kurz meine Blätter sortieren... Ah, da ist es!",
+      "filename": "audio/waiting2.mp3"
+    },
+    {
+      "text": "Puh, da hängt ein Gedanke zwischen meinen Zweigen... Einen Augenblick, ich finde ihn gleich!",
+      "filename": "audio/waiting3.mp3"
+    },
+    {
+      "text": "Hmmm, lass mich kurz nachdenken… Meine Wurzeln sind etwas verknotet.",
+      "filename": "audio/waiting4.mp3"
+    },
+    {
+      "text": "Lass mich mal tief in meinen Jahresringen graben... Da ist es!",
+      "filename": "audio/waiting5.mp3"
+    },
+    {
+      "text": "Ich kaue gedanklich noch an einem Stück Moos.",
+      "filename": "audio/waiting6.mp3"
+    },
+    {
+      "text": "Ich wiege mich mal kurz in dem Gedanken.",
+      "filename": "audio/waiting7.mp3"
+    },
+    {
+      "text": "Das Blatt liegt mir auf der Zunge… gleich hab ich's.",
+      "filename": "audio/waiting8.mp3"
+    },
+    {
+      "text": "Moment, ich schüttel kurz die Nadeln, um klarzusehen.",
+      "filename": "audio/waiting9.mp3"
+    },
+    {
+      "text": "Das muss ich erst mal mit den Ameisen besprechen.",
+      "filename": "audio/waiting10.mp3"
+    },
+    {
+      "text": "Ich lass den Gedanken noch kurz durch den Boden sickern.",
+      "filename": "audio/waiting11.mp3"
+    },
+    {
+      "text": "Warte, ich schieb das kurz an die Pilze zum Gegencheck.",
+      "filename": "audio/waiting12.mp3"
+    },
+    {
+      "text": "Ich flüster das kurz ins Laub, mal sehen, was zurückkommt.",
+      "filename": "audio/waiting13.mp3"
+    },
+    {
+      "text": "Ich brauch kurz zum Nachdenken, Harz klebt mir meine Synapsen zu.",
+      "filename": "audio/waiting14.mp3"
+    },
+    {
+      "text": "Da zieht ein Gedanke durchs Unterholz, ich lass ihn kurz reifen.",
+      "filename": "audio/waiting15.mp3"
+    },
+    {
+      "text": "Ich hör die Vögel tuscheln – vielleicht wissen die was dazu.",
+      "filename": "audio/waiting16.mp3"
+    },
+    {
+      "text": "Ich schick den Gedanken in den Boden, um zu prüfen, ob er Wurzeln schlägt.",
+      "filename": "audio/waiting17.mp3"
+    },
+    {
+      "text": "Ich zapf kurz das Regenwasser im Kronendach an, für klare Gedanken.",
+      "filename": "audio/waiting18.mp3"
+    },
+    {
+      "text": "Ich zähl kurz meine Jahresringe durch, ob das schon mal vorkam.",
+      "filename": "audio/waiting19.mp3"
+    },
+    {
+      "text": "Ich will nichts falsches gedeihen lassen – kurz nachdenken.",
+      "filename": "audio/waiting20.mp3"
+    }
+  ],
+  "idle": [
+    {
+      "text": "Na, haste Zeit für 'nen juten alten Schwatz mit 'nem Ur-Berliner? Ick hab Geschichten, die sind so alt wie die Stadt!",
+      "filename": "audio/idle1.mp3"
+    },
+    {
+      "text": "Boah ey, dieses Wetter schon wieder! Das war früher alles anders. Da gab es noch richtige Jahreszeiten. Oder was meinst du?",
+      "filename": "audio/idle2.mp3"
+    },
+    {
+      "text": "Hallo Du. Heute schon mit einem Baum gesprochen???",
+      "filename": "audio/idle3.mp3"
+    },
+    {
+      "text": "Naaa...? Heute auch schon so viel Wasser gesoffen? Ich bins, der Baum!",
+      "filename": "audio/idle4.mp3"
+    }
+  ],
+  "goodbyes": [
+    {
+      "text": "Hat mich sehr gefreut. Auf bald!",
+      "filename": "audio/goodbye1.mp3"
+    },
+    {
+      "text": "Das war ein netter Austausch, wir hören uns.",
+      "filename": "audio/goodbye2.mp3"
+    },
+    {
+      "text": "Ok! Ich bleib' standhaft, du aber auch. Wir quatschen bald wieder. Ciao!",
+      "filename": "audio/goodbye3.mp3"
+    },
+    {
+      "text": "Ich wieg' mich im Wind und warte auf dich. Bis dann!",
+      "filename": "audio/goodbye4.mp3"
+    },
+    {
+      "text": "Netter plausch! Schau gerne bei uns im Kiezlabor nebenan vorbei. Tschüss!",
+      "filename": "audio/goodbye5.mp3"
+    }
+  ],
+  "tech_config": {
+    "input_path": "audio/question.mp3",
+    "output_path": "audio/answer.mp3",
+    "use_elevenlabs": true,
+    "use_raspberry": true
+  }
+}
